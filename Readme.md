@@ -40,8 +40,34 @@ const result = threeSumClosest(nums, target);
 console.log(result);
 
 ```
+Q4.
+```
+function searchInsert(nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
 
-Q2.
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return left;
+}
+
+const nums = [1, 3, 5, 6];
+const target = 5;
+console.log(searchInsert(nums, target));
+
+```
+
+
+Q6.
 ```javascript
   function singleNumber(nums) {
   let result = 0;
@@ -54,5 +80,23 @@ Q2.
 const nums = [2, 2, 1];
 const result = singleNumber(nums);
 console.log(result);
+
+```
+Q8.
+```javascript
+   function canAttendAllMeetings(intervals) {
+  intervals.sort((a, b) => a[0] - b[0]); // Sort intervals based on start time
+
+  for (let i = 1; i < intervals.length; i++) {
+    if (intervals[i][0] < intervals[i - 1][1]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+const intervals = [[0, 30], [5, 10], [15, 20]];
+console.log(canAttendAllMeetings(intervals));
 
 ```
