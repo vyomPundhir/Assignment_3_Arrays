@@ -41,7 +41,7 @@ console.log(result);
 
 ```
 Q4.
-```
+```javascript
 function searchInsert(nums, target) {
   let left = 0;
   let right = nums.length - 1;
